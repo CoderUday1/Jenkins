@@ -1,8 +1,9 @@
 pipeline {
     agent any
 
-    environment {
+   environment {
         DEPLOY_ENV = "staging"
+        IMAGE_NAME = "my-cmake-app"
     }
 
     stages {
@@ -11,6 +12,7 @@ pipeline {
             steps {
                 // e.g. sh 'make build' or mvn clean package
                 echo "Running build..."
+                sh "docker build -t ${IMAGE_NAME} ."
 
             }
         }
@@ -18,6 +20,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo "Running tests..."
+                sh "docker run --rm ${IMAGE_NAME}"
                 // e.g. sh 'npm test'
             }
         }
