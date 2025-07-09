@@ -10,7 +10,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                // e.g. sh 'make build' or mvn clean package
+                // e.g. sh 'make build' or mvn clean packag
                 echo "Running build..."
                 sh "docker build -t ${IMAGE_NAME} ."
 
