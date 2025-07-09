@@ -2,7 +2,6 @@ pipeline {
     agent any
 
     environment {
-        // Example environment variable
         DEPLOY_ENV = "staging"
     }
 
