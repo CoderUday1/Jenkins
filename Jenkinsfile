@@ -10,6 +10,8 @@ pipeline {
         stage('Build') {
             steps {
                 // e.g. sh 'make build' or mvn clean package
+                echo "Running build..."
+
             }
         }
 
