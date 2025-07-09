@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent slave
 
    environment {
         DEPLOY_ENV = "staging"
