@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DEPLOY_ENV = "staging"
-        IMAGE_NAME = "udaysonu/my-cmake-app"
+        IMAGE_NAME = "udaysonu/reactappp"
         IMAGE_TAG = "latest"
     }
 
