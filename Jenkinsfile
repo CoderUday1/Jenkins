@@ -9,7 +9,6 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo "Building the project..."
                 // e.g. sh 'make build' or mvn clean package
             }
         }
