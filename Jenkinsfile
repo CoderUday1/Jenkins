@@ -13,7 +13,7 @@ pipeline {
             steps {
                 // e.g. sh 'make build' or mvn clean packag
                 echo "Running build..."
-                sh "docker build -t ${IMAGE_NAME} ."
+                sh "docker build -t udaysonu/${IMAGE_NAME} ."
 
             }
         }
@@ -45,7 +45,7 @@ pipeline {
             )]) {
                 sh """
                 echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-                docker push ${IMAGE_NAME}:${IMAGE_TAG}
+                docker push udaysonu/${IMAGE_NAME}:${IMAGE_TAG}
                 docker logout
                 """
             }
