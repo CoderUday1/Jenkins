@@ -1,18 +1,15 @@
-version: 0.2
+version: 0.3
 
 phases:
   install:
-    runtime-versions:
-      docker: 20
     commands:
       - echo Installing dependencies...
-      - apt-get update && apt-get install -y docker.io
 
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
-      # Optional: if you plan to push to ECR
-      # - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
+      # Optional if you want to push to ECR
+      # - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin <your_account_id>.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
 
   build:
     commands:
@@ -23,7 +20,6 @@ phases:
     commands:
       - echo Running tests...
       - docker run cpp-app ./build/my_app --run-tests
-      # Replace --run-tests with your test flag or command
       - echo Build and tests completed.
 
 artifacts:
